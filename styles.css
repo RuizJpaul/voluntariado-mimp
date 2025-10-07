@@ -1,0 +1,411 @@
+/* Custom Styles */
+:root {
+  --color-primary: #dc2626;
+  --color-primary-dark: #b91c1c;
+  --color-secondary: #f59e0b;
+  --color-accent: #fbbf24;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Cause Selection Styles */
+.cause-option {
+  display: block;
+  cursor: pointer;
+}
+
+.cause-checkbox {
+  display: none;
+}
+
+.cause-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+  background: white;
+  cursor: pointer;
+}
+
+.cause-card:hover {
+  border-color: #e63946;
+  background: #fef2f2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.1);
+}
+
+.cause-checkbox:checked + .cause-card,
+.cause-card.selected {
+  border-color: #e63946;
+  background: #fef2f2;
+  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.1);
+}
+
+.cause-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.cause-title {
+  font-weight: 600;
+  color: #111827;
+  font-size: 1rem;
+}
+
+.cause-desc {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.cause-card-content {
+  padding: 1.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.cause-card:hover .cause-card-content {
+  border-color: #e63946;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.1);
+}
+
+.cause-card input:checked ~ .cause-card-content,
+.cause-card.selected .cause-card-content {
+  border-color: #e63946;
+  background-color: #fef2f2;
+}
+
+.cause-card-content i {
+  color: #e63946;
+}
+
+/* Map Filter Buttons */
+.map-filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: white;
+  color: #4b5563;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.map-filter-btn:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.map-filter-btn.active {
+  background: #dc2626;
+  color: white;
+  border-color: #dc2626;
+}
+
+/* Opportunity Cards */
+.opportunity-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  border: 1px solid #f3f4f6;
+}
+
+.opportunity-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.opportunity-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Leaflet Map Customization */
+.leaflet-popup-content-wrapper {
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-popup-content {
+  margin: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+/* Custom Marker Styles */
+.custom-marker {
+  background: #dc2626;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Registration Form Styles */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Progress Indicator */
+.step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.step-circle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.step-indicator.active .step-circle {
+  background-color: #e63946;
+  color: white;
+}
+
+.step-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.step-indicator.active .step-label {
+  color: #e63946;
+  font-weight: 600;
+}
+
+.step-line {
+  height: 2px;
+  background-color: #e5e7eb;
+  flex: 1;
+  margin: 0 1rem;
+  margin-top: -2rem;
+}
+
+.step-indicator.active ~ .flex-1 .step-line {
+  background-color: #e63946;
+}
+
+/* Skill Tags */
+.skill-tag {
+  cursor: pointer;
+  display: block;
+}
+
+.skill-tag span {
+  display: block;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.skill-tag:hover span {
+  border-color: #e63946;
+  background-color: #fef2f2;
+}
+
+.skill-tag input:checked ~ span,
+.skill-tag.selected span {
+  border-color: #e63946;
+  background-color: #e63946;
+  color: white;
+  font-weight: 600;
+}
+
+/* Day Checkboxes */
+.day-checkbox {
+  cursor: pointer;
+  display: block;
+}
+
+.day-checkbox span {
+  display: block;
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.day-checkbox:hover span {
+  border-color: #e63946;
+  background-color: #fef2f2;
+}
+
+.day-checkbox input:checked ~ span,
+.day-checkbox.selected span {
+  border-color: #e63946;
+  background-color: #e63946;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cause-icon {
+    font-size: 1.5rem;
+  }
+
+  .cause-title {
+    font-size: 0.875rem;
+  }
+
+  .cause-desc {
+    font-size: 0.75rem;
+  }
+
+  .step-label {
+    font-size: 0.75rem;
+  }
+
+  .step-circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.875rem;
+  }
+
+  .step-line {
+    margin: 0 0.5rem;
+    margin-top: -1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .step-indicator {
+    gap: 0.25rem;
+  }
+
+  .step-label {
+    display: none;
+  }
+
+  .step-line {
+    margin-top: 0;
+  }
+}
+
+/* Loading State */
+.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #dc2626;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus Styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}

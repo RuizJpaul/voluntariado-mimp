@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Organización - Plataforma Nacional de Voluntariado MIMP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E63946',
+                        secondary: '#457B9D',
+                        accent: '#F4A261',
+                        dark: '#1D3557',
+                        light: '#F1FAEE'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+     Header 
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-hands-helping text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-dark text-lg">Voluntariado MIMP</div>
+                        <div class="text-xs text-gray-600">Ministerio de la Mujer</div>
+                    </div>
+                </a>
+                <a href="index.html" class="text-gray-600 hover:text-primary transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Volver al inicio
+                </a>
+            </div>
+        </nav>
+    </header>
+
+     Progress Bar 
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between max-w-3xl mx-auto">
+                <div class="flex-1 flex items-center">
+                    <div class="step-indicator active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <div class="step-label">Datos de la Organización</div>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                <div class="flex-1 flex items-center">
+                    <div class="step-indicator" data-step="2">
+                        <div class="step-circle">2</div>
+                        <div class="step-label">Representante Legal</div>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                <div class="flex-1 flex items-center">
+                    <div class="step-indicator" data-step="3">
+                        <div class="step-circle">3</div>
+                        <div class="step-label">Áreas de Trabajo</div>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                <div class="step-indicator" data-step="4">
+                    <div class="step-circle">4</div>
+                    <div class="step-label">Confirmación</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     Main Content 
+    <main class="container mx-auto px-4 py-12">
+        <div class="max-w-3xl mx-auto">
+             Step 1: Datos de la Organización 
+            <div class="form-step active" id="step-1">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-dark mb-2">Datos de la Organización</h2>
+                        <p class="text-gray-600">Información básica de tu organización</p>
+                    </div>
+
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Nombre de la Organización <span class="text-primary">*</span>
+                            </label>
+                            <input type="text" id="nombreOrg" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="Ej: Fundación Ayuda Social">
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Tipo de Organización <span class="text-primary">*</span>
+                                </label>
+                                <select id="tipoOrg" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                    <option value="">Selecciona</option>
+                                    <option value="ONG">ONG</option>
+                                    <option value="Fundacion">Fundación</option>
+                                    <option value="Asociacion">Asociación Civil</option>
+                                    <option value="Institucion">Institución Educativa</option>
+                                    <option value="Empresa">Empresa Privada</option>
+                                    <option value="Gobierno">Entidad Gubernamental</option>
+                                    <option value="Religiosa">Organización Religiosa</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    RUC <span class="text-primary">*</span>
+                                </label>
+                                <input type="text" id="ruc" required maxlength="11"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="20123456789">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Año de Fundación <span class="text-primary">*</span>
+                            </label>
+                            <input type="number" id="anioFundacion" required min="1900" max="2025"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="2020">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Misión de la Organización <span class="text-primary">*</span>
+                            </label>
+                            <textarea id="mision" rows="4" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="Describe la misión y objetivos principales de tu organización..."></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Sitio Web
+                            </label>
+                            <input type="url" id="sitioWeb"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="https://www.tuorganizacion.org">
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Teléfono de Contacto <span class="text-primary">*</span>
+                                </label>
+                                <input type="tel" id="telefonoOrg" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="01 234 5678">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Correo Electrónico <span class="text-primary">*</span>
+                                </label>
+                                <input type="email" id="emailOrg" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="contacto@organizacion.org">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Dirección <span class="text-primary">*</span>
+                            </label>
+                            <input type="text" id="direccion" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="Av. Principal 123, Distrito, Provincia">
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Departamento <span class="text-primary">*</span>
+                                </label>
+                                <select id="departamentoOrg" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                    <option value="">Selecciona</option>
+                                    <option value="Lima">Lima</option>
+                                    <option value="Arequipa">Arequipa</option>
+                                    <option value="Cusco">Cusco</option>
+                                    <option value="La Libertad">La Libertad</option>
+                                    <option value="Piura">Piura</option>
+                                    <option value="Lambayeque">Lambayeque</option>
+                                    <option value="Junín">Junín</option>
+                                    <option value="Cajamarca">Cajamarca</option>
+                                    <option value="Puno">Puno</option>
+                                    <option value="Ica">Ica</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Provincia <span class="text-primary">*</span>
+                                </label>
+                                <input type="text" id="provinciaOrg" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="Ingresa la provincia">
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="flex justify-end mt-8">
+                        <button onclick="nextStepOrg(2)" 
+                            class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-red-700 transition-colors font-medium">
+                            Siguiente <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+             Step 2: Representante Legal 
+            <div class="form-step" id="step-2">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-dark mb-2">Representante Legal</h2>
+                        <p class="text-gray-600">Información del representante de la organización</p>
+                    </div>
+
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Nombres <span class="text-primary">*</span>
+                                </label>
+                                <input type="text" id="nombresRep" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="Nombres del representante">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Apellidos <span class="text-primary">*</span>
+                                </label>
+                                <input type="text" id="apellidosRep" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="Apellidos del representante">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Tipo de Documento <span class="text-primary">*</span>
+                                </label>
+                                <select id="tipoDocRep" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                    <option value="">Selecciona</option>
+                                    <option value="DNI">DNI</option>
+                                    <option value="CE">Carnet de Extranjería</option>
+                                    <option value="Pasaporte">Pasaporte</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Número de Documento <span class="text-primary">*</span>
+                                </label>
+                                <input type="text" id="numeroDocRep" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="12345678">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Cargo en la Organización <span class="text-primary">*</span>
+                            </label>
+                            <input type="text" id="cargoRep" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="Ej: Director, Presidente, Gerente General">
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Correo Electrónico <span class="text-primary">*</span>
+                                </label>
+                                <input type="email" id="emailRep" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="representante@organizacion.org">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Teléfono / Celular <span class="text-primary">*</span>
+                                </label>
+                                <input type="tel" id="telefonoRep" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="999 999 999">
+                            </div>
+                        </div>
+
+                        <div class="border-t pt-6 mt-6">
+                            <h3 class="text-lg font-semibold text-dark mb-4">Credenciales de Acceso</h3>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Nombre de Usuario <span class="text-primary">*</span>
+                                </label>
+                                <input type="text" id="username" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="usuario_organizacion">
+                                <p class="text-sm text-gray-500 mt-1">Este será tu nombre de usuario para acceder a la plataforma</p>
+                            </div>
+
+                            <div class="mt-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Contraseña <span class="text-primary">*</span>
+                                </label>
+                                <input type="password" id="passwordOrg" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="Mínimo 8 caracteres">
+                                <p class="text-sm text-gray-500 mt-1">Debe contener al menos 8 caracteres, una mayúscula y un número</p>
+                            </div>
+
+                            <div class="mt-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Confirmar Contraseña <span class="text-primary">*</span>
+                                </label>
+                                <input type="password" id="confirmPasswordOrg" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="Repite la contraseña">
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="terminosOrg" required
+                                class="mt-1 w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+                            <label for="terminosOrg" class="text-sm text-gray-700">
+                                Declaro que la información proporcionada es verídica y acepto los 
+                                <a href="#" class="text-primary hover:underline">términos y condiciones</a> 
+                                de la plataforma
+                            </label>
+                        </div>
+                    </form>
+
+                    <div class="flex justify-between mt-8">
+                        <button onclick="prevStepOrg(1)" 
+                            class="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium">
+                            <i class="fas fa-arrow-left mr-2"></i> Anterior
+                        </button>
+                        <button onclick="nextStepOrg(3)" 
+                            class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-red-700 transition-colors font-medium">
+                            Siguiente <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+             Step 3: Áreas de Trabajo 
+            <div class="form-step" id="step-3">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-dark mb-2">Áreas de Trabajo</h2>
+                        <p class="text-gray-600">Selecciona las áreas en las que tu organización trabaja</p>
+                    </div>
+
+                    <form class="space-y-8">
+                         Áreas de Trabajo 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿En qué áreas trabaja tu organización? <span class="text-primary">*</span>
+                            </label>
+                            <p class="text-sm text-gray-600 mb-4">Selecciona todas las que apliquen</p>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <label class="cause-card">
+                                    <input type="checkbox" name="areasOrg" value="educacion" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-graduation-cap text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Educación</h4>
+                                        <p class="text-sm text-gray-600">Enseñanza y alfabetización</p>
+                                    </div>
+                                </label>
+                                <label class="cause-card">
+                                    <input type="checkbox" name="areasOrg" value="salud" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-heartbeat text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Salud</h4>
+                                        <p class="text-sm text-gray-600">Atención médica y bienestar</p>
+                                    </div>
+                                </label>
+                                <label class="cause-card">
+                                    <input type="checkbox" name="areasOrg" value="ambiente" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-leaf text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Medio Ambiente</h4>
+                                        <p class="text-sm text-gray-600">Conservación y sostenibilidad</p>
+                                    </div>
+                                </label>
+                                <label class="cause-card">
+                                    <input type="checkbox" name="areasOrg" value="derechos" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-balance-scale text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Derechos Humanos</h4>
+                                        <p class="text-sm text-gray-600">Igualdad y justicia social</p>
+                                    </div>
+                                </label>
+                                <label class="cause-card">
+                                    <input type="checkbox" name="areasOrg" value="animales" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-paw text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Protección Animal</h4>
+                                        <p class="text-sm text-gray-600">Cuidado y rescate</p>
+                                    </div>
+                                </label>
+                                <label class="cause-card">
+                                    <input type="checkbox" name="areasOrg" value="comunidad" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-users text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Desarrollo Comunitario</h4>
+                                        <p class="text-sm text-gray-600">Infraestructura y servicios</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                         Alcance Geográfico 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿Cuál es el alcance geográfico de tu organización? <span class="text-primary">*</span>
+                            </label>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="alcance" value="local" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Local</div>
+                                        <div class="text-sm text-gray-600">Trabaja en una ciudad o distrito específico</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="alcance" value="regional" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Regional</div>
+                                        <div class="text-sm text-gray-600">Trabaja en uno o varios departamentos</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="alcance" value="nacional" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Nacional</div>
+                                        <div class="text-sm text-gray-600">Trabaja en todo el territorio peruano</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="alcance" value="internacional" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Internacional</div>
+                                        <div class="text-sm text-gray-600">Trabaja en Perú y otros países</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                         Número de Voluntarios 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿Cuántos voluntarios aproximadamente trabajan con tu organización actualmente?
+                            </label>
+                            <select id="numVoluntarios"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                <option value="">Selecciona</option>
+                                <option value="0-10">0 - 10 voluntarios</option>
+                                <option value="11-50">11 - 50 voluntarios</option>
+                                <option value="51-100">51 - 100 voluntarios</option>
+                                <option value="101-500">101 - 500 voluntarios</option>
+                                <option value="500+">Más de 500 voluntarios</option>
+                            </select>
+                        </div>
+
+                         Experiencia con Voluntarios 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿Tu organización tiene experiencia trabajando con voluntarios?
+                            </label>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="experienciaVol" value="ninguna" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">No, es nuestra primera vez</div>
+                                        <div class="text-sm text-gray-600">Estamos comenzando a trabajar con voluntarios</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="experienciaVol" value="poca" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Poca experiencia</div>
+                                        <div class="text-sm text-gray-600">Hemos trabajado con voluntarios ocasionalmente</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="experienciaVol" value="moderada" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Experiencia moderada</div>
+                                        <div class="text-sm text-gray-600">Trabajamos regularmente con voluntarios</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="experienciaVol" value="amplia" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Amplia experiencia</div>
+                                        <div class="text-sm text-gray-600">Tenemos un programa establecido de voluntariado</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                         Información Adicional 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                Cuéntanos más sobre tu organización
+                            </label>
+                            <textarea id="infoAdicional" rows="4"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="Comparte logros, proyectos destacados o cualquier información relevante..."></textarea>
+                        </div>
+                    </form>
+
+                    <div class="flex justify-between mt-8">
+                        <button onclick="prevStepOrg(2)" 
+                            class="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium">
+                            <i class="fas fa-arrow-left mr-2"></i> Anterior
+                        </button>
+                        <button onclick="nextStepOrg(4)" 
+                            class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-red-700 transition-colors font-medium">
+                            Finalizar Registro <i class="fas fa-check ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+             Step 4: Confirmación 
+            <div class="form-step" id="step-4">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-check text-green-600 text-3xl"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-dark mb-2">¡Registro Completado!</h2>
+                        <p class="text-gray-600">Tu organización ha sido registrada exitosamente</p>
+                    </div>
+
+                    <div class="bg-light rounded-xl p-6 mb-8">
+                        <h3 class="font-semibold text-dark mb-4">Resumen del registro:</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-building text-primary mt-1"></i>
+                                <div>
+                                    <div class="font-medium">Organización</div>
+                                    <div class="text-gray-600" id="resumen-org">Registrada</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-user-tie text-primary mt-1"></i>
+                                <div>
+                                    <div class="font-medium">Representante Legal</div>
+                                    <div class="text-gray-600" id="resumen-rep">Completado</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-briefcase text-primary mt-1"></i>
+                                <div>
+                                    <div class="font-medium">Áreas de Trabajo</div>
+                                    <div class="text-gray-600" id="resumen-areas">Seleccionadas</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                        <div class="flex gap-4">
+                            <i class="fas fa-info-circle text-blue-600 text-xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-dark mb-2">Próximos pasos:</h4>
+                                <ul class="space-y-2 text-sm text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                        <span>Recibirás un correo de confirmación con tus credenciales de acceso</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                        <span>El equipo del MIMP validará tu organización en las próximas 48-72 horas</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                        <span>Una vez aprobada, podrás publicar convocatorias y gestionar voluntarios</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                        <span>Tendrás acceso al panel de administración de tu organización</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-8">
+                        <div class="flex gap-4">
+                            <i class="fas fa-exclamation-triangle text-amber-600 text-xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-dark mb-2">Documentación requerida:</h4>
+                                <p class="text-sm text-gray-700 mb-3">
+                                    Para completar la validación, deberás enviar los siguientes documentos al correo 
+                                    <a href="mailto:voluntariado@mimp.gob.pe" class="text-primary hover:underline font-medium">voluntariado@mimp.gob.pe</a>:
+                                </p>
+                                <ul class="space-y-1 text-sm text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-file-alt text-amber-600 mt-1"></i>
+                                        <span>Copia del RUC de la organización</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-file-alt text-amber-600 mt-1"></i>
+                                        <span>Documento de identidad del representante legal</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-file-alt text-amber-600 mt-1"></i>
+                                        <span>Carta de presentación de la organización (opcional)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="index.html" 
+                            class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-red-700 transition-colors font-medium text-center">
+                            <i class="fas fa-home mr-2"></i> Ir al Inicio
+                        </a>
+                        <a href="panel-organizacion.html" 
+                            class="px-8 py-3 border border-primary text-primary rounded-lg hover:bg-red-50 transition-colors font-medium text-center">
+                            <i class="fas fa-tachometer-alt mr-2"></i> Ir al Panel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+     Footer 
+    <footer class="bg-dark text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">&copy; 2025 Ministerio de la Mujer y Poblaciones Vulnerables - MIMP</p>
+        </div>
+    </footer>
+
+    <script src="registro-organizacion.js"></script>
+</body>
+</html>

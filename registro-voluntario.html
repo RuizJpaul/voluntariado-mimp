@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Voluntario - Plataforma Nacional de Voluntariado MIMP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E63946',
+                        secondary: '#457B9D',
+                        accent: '#F4A261',
+                        dark: '#1D3557',
+                        light: '#F1FAEE'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+     Header 
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-hands-helping text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-dark text-lg">Voluntariado MIMP</div>
+                        <div class="text-xs text-gray-600">Ministerio de la Mujer</div>
+                    </div>
+                </a>
+                <a href="index.html" class="text-gray-600 hover:text-primary transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Volver al inicio
+                </a>
+            </div>
+        </nav>
+    </header>
+
+     Progress Bar 
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between max-w-3xl mx-auto">
+                <div class="flex-1 flex items-center">
+                    <div class="step-indicator active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <div class="step-label">Datos Personales</div>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                <div class="flex-1 flex items-center">
+                    <div class="step-indicator" data-step="2">
+                        <div class="step-circle">2</div>
+                        <div class="step-label">Test de Afinidad</div>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                <div class="flex-1 flex items-center">
+                    <div class="step-indicator" data-step="3">
+                        <div class="step-circle">3</div>
+                        <div class="step-label">Disponibilidad</div>
+                    </div>
+                    <div class="step-line"></div>
+                </div>
+                <div class="step-indicator" data-step="4">
+                    <div class="step-circle">4</div>
+                    <div class="step-label">Confirmación</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     Main Content 
+    <main class="container mx-auto px-4 py-12">
+        <div class="max-w-3xl mx-auto">
+             Step 1: Datos Personales 
+            <div class="form-step active" id="step-1">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-dark mb-2">Datos Personales</h2>
+                        <p class="text-gray-600">Cuéntanos un poco sobre ti para crear tu perfil de voluntario</p>
+                    </div>
+
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Nombres <span class="text-primary">*</span>
+                                </label>
+                                <input type="text" id="nombres" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="Ingresa tus nombres">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Apellidos <span class="text-primary">*</span>
+                                </label>
+                                <input type="text" id="apellidos" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="Ingresa tus apellidos">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Tipo de Documento <span class="text-primary">*</span>
+                                </label>
+                                <select id="tipoDocumento" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                    <option value="">Selecciona</option>
+                                    <option value="DNI">DNI</option>
+                                    <option value="CE">Carnet de Extranjería</option>
+                                    <option value="Pasaporte">Pasaporte</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Número de Documento <span class="text-primary">*</span>
+                                </label>
+                                <input type="text" id="numeroDocumento" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="Ej: 12345678">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Fecha de Nacimiento <span class="text-primary">*</span>
+                                </label>
+                                <input type="date" id="fechaNacimiento" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Género <span class="text-primary">*</span>
+                                </label>
+                                <select id="genero" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                    <option value="">Selecciona</option>
+                                    <option value="Femenino">Femenino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Otro">Otro</option>
+                                    <option value="Prefiero no decir">Prefiero no decir</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Correo Electrónico <span class="text-primary">*</span>
+                            </label>
+                            <input type="email" id="email" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="tu@email.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Teléfono / Celular <span class="text-primary">*</span>
+                            </label>
+                            <input type="tel" id="telefono" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="999 999 999">
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Departamento <span class="text-primary">*</span>
+                                </label>
+                                <select id="departamento" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                    <option value="">Selecciona</option>
+                                    <option value="Lima">Lima</option>
+                                    <option value="Arequipa">Arequipa</option>
+                                    <option value="Cusco">Cusco</option>
+                                    <option value="La Libertad">La Libertad</option>
+                                    <option value="Piura">Piura</option>
+                                    <option value="Lambayeque">Lambayeque</option>
+                                    <option value="Junín">Junín</option>
+                                    <option value="Cajamarca">Cajamarca</option>
+                                    <option value="Puno">Puno</option>
+                                    <option value="Ica">Ica</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    Provincia <span class="text-primary">*</span>
+                                </label>
+                                <input type="text" id="provincia" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                    placeholder="Ingresa tu provincia">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Contraseña <span class="text-primary">*</span>
+                            </label>
+                            <input type="password" id="password" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="Mínimo 8 caracteres">
+                            <p class="text-sm text-gray-500 mt-1">Debe contener al menos 8 caracteres, una mayúscula y un número</p>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="terminos" required
+                                class="mt-1 w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary">
+                            <label for="terminos" class="text-sm text-gray-700">
+                                Acepto los <a href="#" class="text-primary hover:underline">términos y condiciones</a> 
+                                y la <a href="#" class="text-primary hover:underline">política de privacidad</a> de la plataforma
+                            </label>
+                        </div>
+                    </form>
+
+                    <div class="flex justify-end mt-8">
+                        <button onclick="nextStep(2)" 
+                            class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-red-700 transition-colors font-medium">
+                            Siguiente <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+             Step 2: Test de Afinidad 
+            <div class="form-step" id="step-2">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-dark mb-2">Test de Afinidad</h2>
+                        <p class="text-gray-600">Ayúdanos a encontrar las oportunidades perfectas para ti</p>
+                    </div>
+
+                    <form class="space-y-8">
+                         Causas de Interés 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿Qué causas te apasionan? <span class="text-primary">*</span>
+                            </label>
+                            <p class="text-sm text-gray-600 mb-4">Selecciona todas las que apliquen</p>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <label class="cause-card">
+                                    <input type="checkbox" name="causas" value="educacion" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-graduation-cap text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Educación</h4>
+                                        <p class="text-sm text-gray-600">Enseñanza y alfabetización</p>
+                                    </div>
+                                </label>
+                                <label class="cause-card">
+                                    <input type="checkbox" name="causas" value="salud" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-heartbeat text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Salud</h4>
+                                        <p class="text-sm text-gray-600">Atención médica y bienestar</p>
+                                    </div>
+                                </label>
+                                <label class="cause-card">
+                                    <input type="checkbox" name="causas" value="ambiente" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-leaf text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Medio Ambiente</h4>
+                                        <p class="text-sm text-gray-600">Conservación y sostenibilidad</p>
+                                    </div>
+                                </label>
+                                <label class="cause-card">
+                                    <input type="checkbox" name="causas" value="derechos" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-balance-scale text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Derechos Humanos</h4>
+                                        <p class="text-sm text-gray-600">Igualdad y justicia social</p>
+                                    </div>
+                                </label>
+                                <label class="cause-card">
+                                    <input type="checkbox" name="causas" value="animales" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-paw text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Protección Animal</h4>
+                                        <p class="text-sm text-gray-600">Cuidado y rescate</p>
+                                    </div>
+                                </label>
+                                <label class="cause-card">
+                                    <input type="checkbox" name="causas" value="comunidad" class="hidden">
+                                    <div class="cause-card-content">
+                                        <i class="fas fa-users text-3xl mb-3"></i>
+                                        <h4 class="font-semibold">Desarrollo Comunitario</h4>
+                                        <p class="text-sm text-gray-600">Infraestructura y servicios</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                         Habilidades 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿Qué habilidades puedes aportar? <span class="text-primary">*</span>
+                            </label>
+                            <p class="text-sm text-gray-600 mb-4">Selecciona todas las que apliquen</p>
+                            <div class="grid md:grid-cols-3 gap-3">
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="ensenanza" class="hidden">
+                                    <span>Enseñanza</span>
+                                </label>
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="tecnologia" class="hidden">
+                                    <span>Tecnología</span>
+                                </label>
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="salud" class="hidden">
+                                    <span>Salud/Enfermería</span>
+                                </label>
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="arte" class="hidden">
+                                    <span>Arte y Creatividad</span>
+                                </label>
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="construccion" class="hidden">
+                                    <span>Construcción</span>
+                                </label>
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="cocina" class="hidden">
+                                    <span>Cocina</span>
+                                </label>
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="administracion" class="hidden">
+                                    <span>Administración</span>
+                                </label>
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="comunicacion" class="hidden">
+                                    <span>Comunicación</span>
+                                </label>
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="idiomas" class="hidden">
+                                    <span>Idiomas</span>
+                                </label>
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="deportes" class="hidden">
+                                    <span>Deportes</span>
+                                </label>
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="musica" class="hidden">
+                                    <span>Música</span>
+                                </label>
+                                <label class="skill-tag">
+                                    <input type="checkbox" name="habilidades" value="fotografia" class="hidden">
+                                    <span>Fotografía</span>
+                                </label>
+                            </div>
+                        </div>
+
+                         Experiencia Previa 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿Tienes experiencia previa como voluntario?
+                            </label>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="experiencia" value="ninguna" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">No, es mi primera vez</div>
+                                        <div class="text-sm text-gray-600">Estoy emocionado por comenzar</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="experiencia" value="poca" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Poca experiencia</div>
+                                        <div class="text-sm text-gray-600">He participado en algunas actividades</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="experiencia" value="moderada" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Experiencia moderada</div>
+                                        <div class="text-sm text-gray-600">He sido voluntario varias veces</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="experiencia" value="amplia" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Amplia experiencia</div>
+                                        <div class="text-sm text-gray-600">Soy un voluntario activo y comprometido</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                         Motivación 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿Qué te motiva a ser voluntario?
+                            </label>
+                            <textarea id="motivacion" rows="4"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="Cuéntanos qué te inspira a ayudar a tu comunidad..."></textarea>
+                        </div>
+                    </form>
+
+                    <div class="flex justify-between mt-8">
+                        <button onclick="prevStep(1)" 
+                            class="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium">
+                            <i class="fas fa-arrow-left mr-2"></i> Anterior
+                        </button>
+                        <button onclick="nextStep(3)" 
+                            class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-red-700 transition-colors font-medium">
+                            Siguiente <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+             Step 3: Disponibilidad 
+            <div class="form-step" id="step-3">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-dark mb-2">Disponibilidad</h2>
+                        <p class="text-gray-600">Cuéntanos cuándo puedes participar en actividades de voluntariado</p>
+                    </div>
+
+                    <form class="space-y-8">
+                         Frecuencia 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿Con qué frecuencia puedes participar? <span class="text-primary">*</span>
+                            </label>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="frecuencia" value="puntual" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Actividades puntuales</div>
+                                        <div class="text-sm text-gray-600">Eventos específicos ocasionales</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="frecuencia" value="mensual" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Una vez al mes</div>
+                                        <div class="text-sm text-gray-600">Compromiso mensual regular</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="frecuencia" value="quincenal" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Cada dos semanas</div>
+                                        <div class="text-sm text-gray-600">Participación quincenal</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="radio" name="frecuencia" value="semanal" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Semanalmente</div>
+                                        <div class="text-sm text-gray-600">Compromiso semanal constante</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                         Días disponibles 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿Qué días de la semana estás disponible? <span class="text-primary">*</span>
+                            </label>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <label class="day-checkbox">
+                                    <input type="checkbox" name="dias" value="lunes" class="hidden">
+                                    <span>Lunes</span>
+                                </label>
+                                <label class="day-checkbox">
+                                    <input type="checkbox" name="dias" value="martes" class="hidden">
+                                    <span>Martes</span>
+                                </label>
+                                <label class="day-checkbox">
+                                    <input type="checkbox" name="dias" value="miercoles" class="hidden">
+                                    <span>Miércoles</span>
+                                </label>
+                                <label class="day-checkbox">
+                                    <input type="checkbox" name="dias" value="jueves" class="hidden">
+                                    <span>Jueves</span>
+                                </label>
+                                <label class="day-checkbox">
+                                    <input type="checkbox" name="dias" value="viernes" class="hidden">
+                                    <span>Viernes</span>
+                                </label>
+                                <label class="day-checkbox">
+                                    <input type="checkbox" name="dias" value="sabado" class="hidden">
+                                    <span>Sábado</span>
+                                </label>
+                                <label class="day-checkbox">
+                                    <input type="checkbox" name="dias" value="domingo" class="hidden">
+                                    <span>Domingo</span>
+                                </label>
+                                <label class="day-checkbox">
+                                    <input type="checkbox" name="dias" value="flexible" class="hidden">
+                                    <span>Flexible</span>
+                                </label>
+                            </div>
+                        </div>
+
+                         Horarios 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿En qué horarios prefieres participar? <span class="text-primary">*</span>
+                            </label>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" name="horarios" value="manana" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Mañanas (8:00 AM - 12:00 PM)</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" name="horarios" value="tarde" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Tardes (12:00 PM - 6:00 PM)</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" name="horarios" value="noche" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Noches (6:00 PM - 10:00 PM)</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" name="horarios" value="findesemana" class="w-5 h-5 text-primary">
+                                    <div>
+                                        <div class="font-medium">Fines de semana completos</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                         Modalidad 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿Qué modalidad prefieres? <span class="text-primary">*</span>
+                            </label>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" name="modalidad" value="presencial" class="w-5 h-5 text-primary">
+                                    <div class="text-center w-full">
+                                        <i class="fas fa-users text-2xl text-primary mb-2"></i>
+                                        <div class="font-medium">Presencial</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" name="modalidad" value="virtual" class="w-5 h-5 text-primary">
+                                    <div class="text-center w-full">
+                                        <i class="fas fa-laptop text-2xl text-primary mb-2"></i>
+                                        <div class="font-medium">Virtual</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-primary transition-colors">
+                                    <input type="checkbox" name="modalidad" value="hibrida" class="w-5 h-5 text-primary">
+                                    <div class="text-center w-full">
+                                        <i class="fas fa-sync-alt text-2xl text-primary mb-2"></i>
+                                        <div class="font-medium">Híbrida</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                         Distancia 
+                        <div>
+                            <label class="block text-lg font-semibold text-dark mb-4">
+                                ¿Qué distancia estás dispuesto a recorrer? (para actividades presenciales)
+                            </label>
+                            <select id="distancia"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                <option value="5km">Hasta 5 km de mi ubicación</option>
+                                <option value="10km">Hasta 10 km de mi ubicación</option>
+                                <option value="20km">Hasta 20 km de mi ubicación</option>
+                                <option value="ciudad">Cualquier lugar en mi ciudad</option>
+                                <option value="region">Cualquier lugar en mi región</option>
+                                <option value="nacional">A nivel nacional</option>
+                            </select>
+                        </div>
+                    </form>
+
+                    <div class="flex justify-between mt-8">
+                        <button onclick="prevStep(2)" 
+                            class="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium">
+                            <i class="fas fa-arrow-left mr-2"></i> Anterior
+                        </button>
+                        <button onclick="nextStep(4)" 
+                            class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-red-700 transition-colors font-medium">
+                            Siguiente <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+             Step 4: Confirmación 
+            <div class="form-step" id="step-4">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-check text-green-600 text-3xl"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-dark mb-2">¡Registro Completado!</h2>
+                        <p class="text-gray-600">Tu perfil de voluntario ha sido creado exitosamente</p>
+                    </div>
+
+                    <div class="bg-light rounded-xl p-6 mb-8">
+                        <h3 class="font-semibold text-dark mb-4">Resumen de tu perfil:</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-user text-primary mt-1"></i>
+                                <div>
+                                    <div class="font-medium">Información Personal</div>
+                                    <div class="text-gray-600" id="resumen-personal">Completado</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-heart text-primary mt-1"></i>
+                                <div>
+                                    <div class="font-medium">Causas de Interés</div>
+                                    <div class="text-gray-600" id="resumen-causas">Seleccionadas</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-star text-primary mt-1"></i>
+                                <div>
+                                    <div class="font-medium">Habilidades</div>
+                                    <div class="text-gray-600" id="resumen-habilidades">Registradas</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-calendar text-primary mt-1"></i>
+                                <div>
+                                    <div class="font-medium">Disponibilidad</div>
+                                    <div class="text-gray-600" id="resumen-disponibilidad">Configurada</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                        <div class="flex gap-4">
+                            <i class="fas fa-info-circle text-blue-600 text-xl"></i>
+                            <div>
+                                <h4 class="font-semibold text-dark mb-2">Próximos pasos:</h4>
+                                <ul class="space-y-2 text-sm text-gray-700">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                        <span>Recibirás un correo de confirmación en los próximos minutos</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                        <span>Nuestro equipo validará tu perfil en las próximas 24-48 horas</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fas fa-check-circle text-blue-600 mt-1"></i>
+                                        <span>Una vez aprobado, podrás postular a convocatorias y comenzar tu huella solidaria</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="index.html" 
+                            class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-red-700 transition-colors font-medium text-center">
+                            <i class="fas fa-home mr-2"></i> Ir al Inicio
+                        </a>
+                        <a href="perfil-voluntario.html" 
+                            class="px-8 py-3 border border-primary text-primary rounded-lg hover:bg-red-50 transition-colors font-medium text-center">
+                            <i class="fas fa-user mr-2"></i> Ver Mi Perfil
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+     Footer 
+    <footer class="bg-dark text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">&copy; 2025 Ministerio de la Mujer y Poblaciones Vulnerables - MIMP</p>
+        </div>
+    </footer>
+
+    <script src="registro-voluntario.js"></script>
+</body>
+</html>
